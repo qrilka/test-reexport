@@ -1,0 +1,25 @@
+name:                reexport
+version:             0.1.0.0
+homepage:            https://github.com/githubuser/reexport#readme
+license:             BSD3
+license-file:        LICENSE
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.22
+extra-source-files:  README.md
+
+library
+  default-language:    Haskell2010
+  hs-source-dirs:    src
+  build-depends:     base
+                   , rio
+  exposed-modules:
+    Lib
+  reexported-modules:
+    rio:RIO as RioDeJaneiro
+
+executable reexport
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5, reexport
